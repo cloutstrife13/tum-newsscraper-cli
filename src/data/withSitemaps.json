@@ -1,0 +1,50 @@
+[
+  {
+    "domain": "polishexpress.co.uk",
+    "sitemap": "https://www.polishexpress.co.uk/sitemap.xml",
+    "navFragment": "https://www.polishexpress.co.uk/sitemap_articles_",
+    "navSelector": "#sitemap > tbody > tr > td > a",
+    "hasLastModified": true,
+    "recordedOn": "05/12/2021"
+  },
+  {
+    "domain": "jewish.org.pl",
+    "sitemap": "https://jewish.org.pl/wp-sitemap.xml",
+    "navFragment": "https://jewish.org.pl/wp-sitemap-posts-post-",
+    "navSelector": "#sitemap__table > tbody > tr > td > a",
+    "hasLastModified": false,
+    "recordedOn": "05/12/2021"
+  },
+  {
+    "domain": "gal-dem.com",
+    "sitemap": "https://gal-dem.com/sitemap_index.xml",
+    "navFragment": "https://gal-dem.com/post-sitemap",
+    "navSelector": "#sitemap > tbody > tr > td > a",
+    "hasLastModified": true,
+    "recordedOn": "05/12/2021"
+  },
+  {
+    "domain": "maenner.media",
+    "sitemap": "https://www.maenner.media/sitemap.xml",
+    "navFragment": "https://www.maenner.media/sitemap_content_",
+    "navSelector": "div[id='folder0'] > div.opened > div[id*='folder'] > div.opened > div:nth-child(1) > span:nth-child(2)",
+    "hasLastModified": false,
+    "recordedOn": "11/12/2021"
+  },
+  {
+    "domain": "queer.pl",
+    "sitemap": "https://queer.pl/sitemap/articles/",
+    "navFragment": "https://queer.pl/sitemap/articles/",
+    "navSelector": "div.opened > div:nth-child(2) > span:nth-child(2)",
+    "hasLastModified": true,
+    "recordedOn": "05/12/2021"
+  },
+  {
+    "domain": "lgbtqnation.com",
+    "sitemap": "https://www.lgbtqnation.com/sitemap.xml",
+    "navFragment": "https://www.lgbtqnation.com/sitemap-pt-post-",
+    "navSelector": "#content > table > tbody > tr > td > a",
+    "hasLastModified": true,
+    "recordedOn": "05/12/2021"
+  }
+]

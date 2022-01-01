@@ -1,0 +1,51 @@
+[
+  {
+    "domain": "codziennikfeministyczny.pl",
+    "categoryUrl": "http://codziennikfeministyczny.pl/kategoria",
+    "categories": ["news", "publicystyka", "wywiady", "multimedia", "recenzje"],
+    "paginationSplitter": "/",
+    "dateSplitter": "-",
+    "indexOfYear": 0,
+    "paginationSelector": "body > div.content-container > section.content-block-category > div > nav.codziennik-pagination-container.no-prev-next > span.current-page-container",
+    "hrefSelector": "body > div.content-container > section.content-block-category > div > div > ul > li > div.title > h3 > a",
+    "dateSelector": "body > div.content-container > section.content-block-category > div > div > ul > li > div.author-date.cf > span.date",
+    "recordedOn": "05/12/2021"
+  },
+  {
+    "domain": "muslimnews.co.uk",
+    "categoryUrl": "https://muslimnews.co.uk/news",
+    "categories": [
+      "africa",
+      "central-asia",
+      "americas",
+      "europe",
+      "far-east",
+      "middle-east",
+      "south-asia",
+      "south-east-asia",
+      "oic",
+      "palastine",
+      "russia",
+      "uk",
+      "united-nations",
+      "environment",
+      "olympics",
+      "racism",
+      "religion",
+      "nuclear-weapons",
+      "ramadan",
+      "imprisoning-democracy",
+      "campaign-on-terror",
+      "islamophobia",
+      "election",
+      "health-and-science"
+    ],
+    "paginationSplitter": " ",
+    "dateSplitter": " ",
+    "indexOfYear": -1,
+    "paginationSelector": "#mm-0 > div > div > div.container > div.leftcol > div > div.pagination > span:nth-child(1)",
+    "hrefSelector": "#news_container > div > p > a",
+    "dateSelector": "#news_container > div > div > div",
+    "recordedOn": "05/12/2021"
+  }
+]

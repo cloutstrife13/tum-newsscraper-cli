@@ -1,0 +1,342 @@
+[
+  {
+    "domain": "gal-dem.com",
+    "pageElements": [
+      {
+        "label": "Heading",
+        "selector": "h1"
+      },
+      {
+        "label": "Thumbnail",
+        "selector": "[class*=header--img]"
+      },
+      {
+        "label": "Standfirst",
+        "selector": "[class*=standfirst]"
+      },
+      {
+        "label": "Author",
+        "selector": "[class*=author]"
+      },
+      {
+        "label": "Publication date",
+        "selector": "[class*=date]"
+      },
+      {
+        "label": "Category",
+        "selector": "[class='cards__card--cat meta']"
+      },
+      {
+        "label": "Tag",
+        "selector": "li[class*=tags] > a"
+      },
+      {
+        "label": "Body",
+        "selector": "[id=contentContainer]"
+      },
+      {
+        "label": "Image",
+        "selector": "[id=contentContainer] img"
+      },
+      {
+        "label": "Link",
+        "selector": "[id=contentContainer] a:not([class*=a2a])"
+      },
+      {
+        "label": "Body exclusion",
+        "selector": "[class*=a2a]"
+      }
+    ]
+  },
+  {
+    "domain": "lgbtqnation.com",
+    "pageElements": [
+      {
+        "label": "Heading",
+        "selector": "h1"
+      },
+      {
+        "label": "Thumbnail",
+        "selector": "[class=single-entry-thumb] > img"
+      },
+      {
+        "label": "Standfirst",
+        "selector": "[class*=teaser]"
+      },
+      {
+        "label": "Author",
+        "selector": "[class*=author] a"
+      },
+      {
+        "label": "Publication date",
+        "selector": "[class*=published]"
+      },
+      {
+        "label": "Category",
+        "selector": "[class*=categories] a"
+      },
+      {
+        "label": "Tag",
+        "selector": "a[rel=tag]"
+      },
+      {
+        "label": "Body",
+        "selector": "[class*=entry-content]"
+      },
+      {
+        "label": "Image",
+        "selector": "[class*=entry-content] img"
+      },
+      {
+        "label": "Link",
+        "selector": "[class*=entry-content] a"
+      }
+    ]
+  },
+  {
+    "domain": "polishexpress.co.uk",
+    "pageElements": [
+      {
+        "label": "Heading",
+        "selector": "h1"
+      },
+      {
+        "label": "Thumbnail",
+        "selector": "article > header > div > img"
+      },
+      {
+        "label": "Summary",
+        "selector": "[class*=summary] > p"
+      },
+      {
+        "label": "Author",
+        "selector": "[class*=createdby-top] > span > a"
+      },
+      {
+        "label": "Publication date",
+        "selector": "[class*=time]"
+      },
+      {
+        "label": "Category",
+        "selector": "[class*=categories] > li > a"
+      },
+      {
+        "label": "Body",
+        "selector": "[class=article-content]"
+      },
+      {
+        "label": "Image",
+        "selector": "[class=article-content] img:not([class*=createdby] *)"
+      },
+      {
+        "label": "Link",
+        "selector": "[class=article-content] a:not([class*=createdby] *)"
+      },
+      {
+        "label": "Body exclusion",
+        "selector": "[class*=createdby]"
+      }
+    ]
+  },
+  {
+    "domain": "queer.pl",
+    "pageElements": [
+      {
+        "label": "Heading",
+        "selector": "h1"
+      },
+      {
+        "label": "Thumbnail",
+        "selector": "[class=top-img-box] * img"
+      },
+      {
+        "label": "Standfirst",
+        "selector": "[class=lead]"
+      },
+      {
+        "label": "Subheading",
+        "selector": "[class=subhead]"
+      },
+      {
+        "label": "Author",
+        "selector": "[class*=author] > div.name"
+      },
+      {
+        "label": "Publication date",
+        "selector": "[class=top-date]"
+      },
+      {
+        "label": "Tag",
+        "selector": "[class=tags-list] > a"
+      },
+      {
+        "label": "Body",
+        "selector": "[class=article-txt]"
+      },
+      {
+        "label": "Image",
+        "selector": "[class=article-txt] img:not([class=box-inside-article] *)"
+      },
+      {
+        "label": "Link",
+        "selector": "[class=article-txt] a:not([class=box-inside-article] *)"
+      },
+      {
+        "label": "Body exclusion",
+        "selector": "[class=box-inside-article]"
+      }
+    ]
+  },
+  {
+    "domain": "jewish.org.pl",
+    "pageElements": [
+      {
+        "label": "Heading",
+        "selector": "h1[itemprop]"
+      },
+      {
+        "label": "Thumbnail",
+        "selector": "[class=thumb] > img"
+      },
+      {
+        "label": "Author",
+        "selector": "[class*=author] > a"
+      },
+      {
+        "label": "Publication date",
+        "selector": "[class=post-date]"
+      },
+      {
+        "label": "Category",
+        "selector": "[class=singletop] > div.post-category > a"
+      },
+      {
+        "label": "Body",
+        "selector": "[itemProp=articleBody]"
+      },
+      {
+        "label": "Image",
+        "selector": "[itemProp=articleBody] img"
+      },
+      {
+        "label": "Link",
+        "selector": "[itemProp=articleBody] a"
+      }
+    ]
+  },
+  {
+    "domain": "maenner.media",
+    "pageElements": [
+      {
+        "label": "Heading",
+        "selector": "h1"
+      },
+      {
+        "label": "Thumbnail",
+        "selector": "[class*=cover] img"
+      },
+      {
+        "label": "Author",
+        "selector": "a[itemprop=author]"
+      },
+      {
+        "label": "Publication date",
+        "selector": "time[itemprop=datePublished] > p[class=date]"
+      },
+      {
+        "label": "Tag",
+        "selector": "[class=tags] a"
+      },
+      {
+        "label": "Body",
+        "selector": "[itemProp=articleBody]"
+      },
+      {
+        "label": "Image",
+        "selector": "[itemProp=articleBody] img:not([class=slider-container] *)"
+      },
+      {
+        "label": "Link",
+        "selector": "[itemprop=articleBody] a[href]:not([class*='nav'] *,[class=mp-html] *)"
+      },
+      {
+        "label": "Body exclusion",
+        "selector": "[class=mp-html]"
+      },
+      {
+        "label": "Body exclusion",
+        "selector": "[class*=media-carousel]"
+      },
+      {
+        "label": "Body exclusion",
+        "selector": "[id*=media-carousel]"
+      }
+    ]
+  },
+  {
+    "domain": "muslimnews.co.uk",
+    "pageElements": [
+      {
+        "label": "Heading",
+        "selector": "[class=newspaper-detail] > h3"
+      },
+      {
+        "label": "Thumbnail",
+        "selector": "[class=imgb] > img"
+      },
+      {
+        "label": "Publication date",
+        "selector": "[class=imgb] > div"
+      },
+      {
+        "label": "Tag",
+        "selector": "[class=tags] a"
+      },
+      {
+        "label": "Body",
+        "selector": "[class=entry]"
+      }
+    ]
+  },
+  {
+    "domain": "codziennikfeministyczny.pl",
+    "pageElements": [
+      {
+        "label": "Heading",
+        "selector": "h1"
+      },
+      {
+        "label": "Author",
+        "selector": "[rel=me]"
+      },
+      {
+        "label": "Publication date",
+        "selector": "time"
+      },
+      {
+        "label": "Tag",
+        "selector": "[class=post-tags] a"
+      },
+      {
+        "label": "Body",
+        "selector": "[class=single-article]"
+      },
+      {
+        "label": "Image",
+        "selector": "[class=single-article] img:not([id*=ssba] *)"
+      },
+      {
+        "label": "Link",
+        "selector": "[class=single-article] a:not([id*=ssba] *)"
+      },
+      {
+        "label": "Body exclusion",
+        "selector": "header"
+      },
+      {
+        "label": "Body exclusion",
+        "selector": "footer"
+      }
+    ]
+  }
+]

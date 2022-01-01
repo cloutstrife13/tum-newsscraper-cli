@@ -1,0 +1,47 @@
+[
+  {
+    "domain": "polishexpress.co.uk",
+    "urlSource": "sitemap",
+    "remarks": "Articles are sorted by month and year, dating back to 2006"
+  },
+  {
+    "domain": "jewish.org.pl",
+    "urlSource": "sitemap",
+    "remarks": "None"
+  },
+  {
+    "domain": "muslimnews.co.uk",
+    "urlSource": "custom",
+    "remarks": "Domain has a sitemap that is outdated unfortunately"
+  },
+  {
+    "domain": "codziennikfeministyczny.pl",
+    "urlSource": "custom",
+    "remarks": "Domain has a sitemap that is outdated unfortunately"
+  },
+  {
+    "domain": "gal-dem.com",
+    "urlSource": "sitemap",
+    "remarks": "None"
+  },
+  {
+    "domain": "maenner.media",
+    "urlSource": "sitemap",
+    "remarks": "Articles from sitemap_content_20 and onwards seem to be yielding 'Page Not Found'"
+  },
+  {
+    "domain": "queer.pl",
+    "urlSource": "sitemap",
+    "remarks": "We are targeting latest news"
+  },
+  {
+    "domain": "queer.pl",
+    "urlSource": "sitemap",
+    "remarks": "Articles are sorted by month and year, dating back to 2008"
+  },
+  {
+    "domain": "lgbtqnation.com",
+    "urlSource": "sitemap",
+    "remarks": "Articles are sorted by month and year, dating back to 2000"
+  }
+]

@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Config {
+  outputDir String @unique @db.VarChar(256)
+}
+
+model Newspaper {
+  id                Int                @id @default(autoincrement())
+  name              String             @unique @db.VarChar(64)
+  newspaperArticles NewspaperArticle[]
+  articleElements   ArticleElement[]
+}
+
+model NewspaperArticle {
+  newspaper      Newspaper        @relation(fields: [newspaperId], references: [id])
+  id             String           @id @default(uuid())
+  url            String           @unique @db.VarChar(512)
+  newspaperId    Int
+  publication    DateTime         @default(now())
+  scrapedArticle ScrapedArticle[]
+}
+
+model ArticleElement {
+  id          String    @id @default(uuid())
+  newspaper   Newspaper @relation(fields: [newspaperId], references: [id])
+  newspaperId Int
+  selector    String    @db.VarChar(256)
+  label       String    @db.VarChar(64)
+}
+
+model ScrapedArticle {
+  id                 String            @id @default(uuid())
+  article            NewspaperArticle  @relation(fields: [newspaperArticleId], references: [id])
+  author             String?           @db.VarChar(128)
+  heading            String?           @db.VarChar(256)
+  thumbnailUrl       String?           @db.VarChar(512)
+  standfirst         String?           @db.Text
+  datePublished      DateTime?         @default(now())
+  body               String?           @db.Text
+  imageUrls          ArticleImage[]
+  referenceUrls      ArticleLink[]
+  categories         ArticleCategory[]
+  tags               ArticleTag[]
+  summary            String?           @db.Text
+  subheading         String?           @db.Text
+  newspaperArticleId String
+}
+
+model ArticleCategory {
+  id               Int            @id @default(autoincrement())
+  name             String         @db.VarChar(512)
+  scrapedArticle   ScrapedArticle @relation(fields: [scrapedArticleId], references: [id])
+  scrapedArticleId String
+}
+
+model ArticleTag {
+  id               Int            @id @default(autoincrement())
+  name             String         @db.VarChar(512)
+  scrapedArticle   ScrapedArticle @relation(fields: [scrapedArticleId], references: [id])
+  scrapedArticleId String
+}
+
+model ArticleImage {
+  id               Int            @id @default(autoincrement())
+  url              String         @db.VarChar(512)
+  scrapedArticle   ScrapedArticle @relation(fields: [scrapedArticleId], references: [id])
+  scrapedArticleId String
+}
+
+model ArticleLink {
+  id               Int            @id @default(autoincrement())
+  url              String         @db.VarChar(512)
+  scrapedArticle   ScrapedArticle @relation(fields: [scrapedArticleId], references: [id])
+  scrapedArticleId String
+}
