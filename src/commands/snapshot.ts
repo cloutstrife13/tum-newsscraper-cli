@@ -1,5 +1,5 @@
 import { Command } from 'commander'
-import { actionForSnapshot } from '../lib/mthmlSnapshotter'
+import { actionForSnapshot } from '../lib/mhtmlSnapshotter'
 import {
   argumentForDomains,
   optionForCrawlDelay,

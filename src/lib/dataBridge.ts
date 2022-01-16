@@ -3,17 +3,23 @@ import { DomainArticleSelector } from '../types/extractionTypes'
 import {
   generateOutputPathByDomain,
   getAllFileNamesFromFolder,
+  verifyPathExistence,
 } from '../utils/systemManager'
 import { prisma } from './prisma'
 
-const getArticleIdsOfAllSnapshots = (domain: string, snapshotPath: string) =>
-  getAllFileNamesFromFolder(snapshotPath).map((fileName: string) => {
+const getArticleIdsOfAllSnapshots = (snapshotPath: string) => {
+  if (!verifyPathExistence(snapshotPath)) {
+    return []
+  }
+
+  return getAllFileNamesFromFolder(snapshotPath).map((fileName: string) => {
     const pattern = 'article-'
     return fileName
       .substring(fileName.indexOf(pattern))
       .replace(pattern, '')
       .replace('.mhtml', '')
   })
+}
 
 export const getUrlsOfArticlesWithoutSnapshots = async (
   domains: string[],
@@ -22,7 +28,6 @@ export const getUrlsOfArticlesWithoutSnapshots = async (
   Promise.all(
     domains.map(async (domain) => {
       const snapshotIds = getArticleIdsOfAllSnapshots(
-        domain,
         generateOutputPathByDomain('snapshots', domain)
       )
 
@@ -56,7 +61,7 @@ export const getUnscrapedSnapshotsAndCssSelectors = async (
   Promise.all(
     domains.map(async (domain) => {
       const snapshotPath = generateOutputPathByDomain('snapshots', domain)
-      const snapshotIds = getArticleIdsOfAllSnapshots(domain, snapshotPath)
+      const snapshotIds = getArticleIdsOfAllSnapshots(snapshotPath)
 
       const articles = (
         await prisma.newspaperArticle.findMany({

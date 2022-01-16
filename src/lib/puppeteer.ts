@@ -287,7 +287,7 @@ export const crawlArticlesForPublicationDates = async (
         }
       }
 
-      articlesCrawled++
+      articlesCrawled += 1
 
       spinner.updateProgress(
         domain,
