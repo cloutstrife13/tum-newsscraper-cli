@@ -1,5 +1,11 @@
 import { resolve } from 'path'
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'fs'
+import {
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  existsSync,
+} from 'fs'
 
 export const generateOutputPath = (folderName: string) =>
   resolve('out', folderName)
@@ -8,6 +14,8 @@ export const generateOutputPathByDomain = (
   folderName: string,
   domain: string
 ) => resolve('out', folderName, domain)
+
+export const verifyPathExistence = (path: string): boolean => existsSync(path)
 
 export const makeDirectory = (path: string) => {
   mkdirSync(path, { recursive: true })
