@@ -1,4 +1,6 @@
 import { MonthDictionary, LanguageCode } from '../types/dateTypes'
+import { ScrapedArticle } from '../types/scrape'
+import { Label } from './enums'
 
 const namedMonthsDictionary: MonthDictionary[] = [
   { en: 'january', pl: 'stycznia', de: 'januar' },
@@ -124,3 +126,17 @@ export const extractDateFromText = (date: string) => {
 
   return new Date(date)
 }
+
+export const formatDatesForScrapedArticles = (
+  scrapedArticles: ScrapedArticle[]
+) =>
+  scrapedArticles.map(({ data: scraped, ...rest }) => ({
+    data: scraped.map(({ label, content }) => ({
+      label,
+      content:
+        label === Label.PubDate
+          ? extractDateFromText(content as string)
+          : content,
+    })),
+    ...rest,
+  }))

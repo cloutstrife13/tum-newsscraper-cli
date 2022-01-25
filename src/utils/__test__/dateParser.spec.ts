@@ -6,67 +6,27 @@ import {
   getStartDateByYear,
 } from '../dateParser'
 import { isPublicationDateInFilter } from '../validator'
+import {
+  englishMonthNames,
+  germanMonthNames,
+  polishMonthNames,
+} from './mock/dateParser.mock'
 
 describe('Translating foreign months to English', () => {
-  const expected = [
-    'january',
-    'february',
-    'march',
-    'april',
-    'may',
-    'june',
-    'july',
-    'august',
-    'september',
-    'october',
-    'november',
-    'december',
-  ]
-
   it('Polish to English', () => {
-    const input = [
-      'stycznia',
-      'lutego',
-      'marca',
-      'kwietnia',
-      'maja',
-      'czerwca',
-      'lipca',
-      'sierpnia',
-      'września',
-      'października',
-      'listopada',
-      'grudnia',
-    ]
-
-    const result = input.map((polishMonth) =>
+    const result = polishMonthNames.map((polishMonth) =>
       getEnglishMonthNameByLanguageCode(polishMonth as PolishMonth, 'pl')
     )
 
-    expect(result).toEqual(expect.arrayContaining(expected))
+    expect(result).toEqual(expect.arrayContaining(englishMonthNames))
   })
 
   it('German to English', () => {
-    const input = [
-      'januar',
-      'februar',
-      'märz',
-      'april',
-      'mai',
-      'juni',
-      'juli',
-      'august',
-      'september',
-      'oktober',
-      'november',
-      'dezember',
-    ]
-
-    const result = input.map((germanMonth) =>
+    const result = germanMonthNames.map((germanMonth) =>
       getEnglishMonthNameByLanguageCode(germanMonth as GermanMonth, 'de')
     )
 
-    expect(result).toEqual(expect.arrayContaining(expected))
+    expect(result).toEqual(expect.arrayContaining(englishMonthNames))
   })
 })
 
