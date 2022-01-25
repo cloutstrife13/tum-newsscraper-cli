@@ -1,13 +1,13 @@
 import {
   ExtractableLabel,
   LabelDictionary,
-  ScrapedArticleDto,
+  ScrapedArticleConverged,
 } from '../types/label'
 import {
   FormattedScrapedArticle,
   FormattedScrapedContent,
 } from '../types/scrape'
-import { Label } from '../utils/enums'
+import { Label } from './enums'
 
 const labelToPropertyMap: LabelDictionary = {
   [Label.Author]: 'author',
@@ -37,7 +37,7 @@ const replaceLabelsWithPropertyNames = (scraped: FormattedScrapedContent[]) =>
 
 export const convertScrapedDataArrayToObject = (
   scraped: FormattedScrapedArticle[]
-): ScrapedArticleDto[] =>
+): ScrapedArticleConverged[] =>
   scraped.map(({ id, data }) => ({
     newspaperArticleId: id,
     ...replaceLabelsWithPropertyNames(data),

@@ -6,7 +6,7 @@ export type LabelDictionary = {
   [label in ExtractableLabel]: string
 }
 
-export type ScrapedArticleDto = {
+export type ScrapedArticleConverged = {
   author?: string
   heading?: string
   thumbnailUrl?: string

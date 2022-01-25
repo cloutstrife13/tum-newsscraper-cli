@@ -459,7 +459,9 @@ export const crawlAndScrapeSnapshots = async (
           }))
         )
 
-        const [{ label }] = bodyElements
+        const [{ label }] = bodyElements.filter(
+          ({ label: bodyLabel }) => bodyLabel === Label.Body
+        )
 
         const processedContent = await scrapeBodyFromArticle(
           page,

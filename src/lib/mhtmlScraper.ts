@@ -3,9 +3,8 @@ import { OptionsForExport } from '../types/commanderTypes'
 import { ProgressSpinner } from '../utils/progressSpinner'
 import { getUnscrapedSnapshotsAndCssSelectors } from './dataBridge'
 import { prisma } from './prisma'
-import { convertScrapedDataArrayToObject } from './labelMapper'
-import { Label } from '../utils/enums'
-import { extractDateFromText } from '../utils/dateParser'
+import { convertScrapedDataArrayToObject } from '../utils/labelMapper'
+import { formatDatesForScrapedArticles } from '../utils/dateParser'
 import { FormattedScrapedArticle } from '../types/scrape'
 
 export const actionForScrape = async (
@@ -30,16 +29,7 @@ export const actionForScrape = async (
   ).flat()
 
   const scrapedArticlesFormatted: FormattedScrapedArticle[] =
-    scrapedArticles.map(({ data: scraped, ...rest }) => ({
-      data: scraped.map(({ label, content }) => ({
-        label,
-        content:
-          label === Label.PubDate
-            ? extractDateFromText(content as string)
-            : content,
-      })),
-      ...rest,
-    }))
+    formatDatesForScrapedArticles(scrapedArticles)
 
   const scrapedArticlesConverged = convertScrapedDataArrayToObject(
     scrapedArticlesFormatted
