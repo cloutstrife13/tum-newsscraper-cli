@@ -41,7 +41,7 @@ model ArticleElement {
 model ScrapedArticle {
   id                 String            @id @default(uuid())
   article            NewspaperArticle  @relation(fields: [newspaperArticleId], references: [id])
-  author             String?           @db.VarChar(128)
+  author             String?           @db.VarChar(1024)
   heading            String?           @db.VarChar(256)
   thumbnailUrl       String?           @db.VarChar(512)
   standfirst         String?           @db.Text
