@@ -125,6 +125,7 @@ export const getAllCategoryArticles = async (
     articles.push(...(urls as string[]))
 
     if (maxPage > 1) {
+      // eslint-disable-next-line no-plusplus
       for (let i = 2; i < maxPage + 1; i++) {
         await page.goto(
           `${noSitemapDomain.categoryUrl}/${category}/page/${i.toString()}`
