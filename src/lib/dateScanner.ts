@@ -52,7 +52,7 @@ export const actionForScan = async (
 
   spinner.startSpinner()
 
-  const result = await Promise.all(
+  await Promise.all(
     data.map(async ({ domain, articles, element }) =>
       crawlArticlesForPublicationDates(
         domain,
@@ -64,7 +64,8 @@ export const actionForScan = async (
     )
   )
 
-  await prisma.$transaction(
+  /**
+     await prisma.$transaction(
     result.flat().map(({ id, ...rest }) =>
       prisma.newspaperArticle.update({
         where: {
@@ -74,15 +75,7 @@ export const actionForScan = async (
       })
     )
   )
+   */
 
   spinner.endSpinner()
-
-  // if (newspaperArticles && articleElement) {
-  //   // const path = generateOutputPathByDomain('urlsUpdated', domain)
-
-  //   // makeDirectory(path)
-
-  //   // writeObjectToFile(`${path}/result.json`, parsedUrlDates)
-
-  // }
 }

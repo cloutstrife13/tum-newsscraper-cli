@@ -25,16 +25,16 @@ import {
 } from '../types/extractionTypes'
 import {
   checkForConfigProperties,
-  checkRandomSampleCondition,
-  isErrorWithArticleEmpty,
+  // checkRandomSampleCondition,
+  // isErrorWithArticleEmpty,
 } from '../utils/validator'
 import { extractDateFromText } from '../utils/dateParser'
 import { partition, shuffle } from '../utils/array'
-import { extractRetryableUrlsFromErrors } from '../utils/error'
-import {
-  getArticlesForRetry,
-  // getConfigWithNewRandomSample,
-} from '../utils/sampleHelper'
+// import { extractRetryableUrlsFromErrors } from '../utils/error'
+// import {
+//   getArticlesForRetry,
+//   getConfigWithNewRandomSample,
+// } from '../utils/sampleHelper'
 import { getScannedArticlesByYearFilter } from '../utils/filter'
 import { OptionsForScan } from '../types/commanderTypes'
 import { Label } from '../utils/enums'
@@ -65,6 +65,8 @@ import {
 } from '../types/scrape'
 import { QuerySelectorError } from '../utils/errors/querySelector'
 import { getCustomExtractorByDomain } from './customScraper'
+import { prisma } from './prisma'
+import { reportError } from '../utils/error'
 
 const getPuppeteerEngine = async <T>(
   extractionCallback: Function
@@ -271,12 +273,28 @@ export const crawlArticlesForPublicationDates = async (
       try {
         await navigateToPage(page, article.url)
 
-        publicationDatesByUrl.push({
+        /**
+         publicationDatesByUrl.push({
           id: article.id,
           url: article.url,
           publication: extractDateFromText(
             await extractTextFromPage(page, dateSelector)
           ),
+        })
+         */
+
+        const publication = extractDateFromText(
+          await extractTextFromPage(page, dateSelector)
+        )
+
+        await prisma.newspaperArticle.update({
+          where: {
+            id: article.id,
+          },
+          data: {
+            url: article.url,
+            publication,
+          },
         })
       } catch (e) {
         if (e instanceof Error) {
@@ -306,7 +324,12 @@ export const crawlArticlesForPublicationDates = async (
       }
     }
 
-    const retryableErrors = extractRetryableUrlsFromErrors(
+    if (errorArticles.length > 0) {
+      reportError(errorArticles, domain)
+    }
+
+    /**
+     * const retryableErrors = extractRetryableUrlsFromErrors(
       errorArticles,
       domain
     )
@@ -369,6 +392,7 @@ export const crawlArticlesForPublicationDates = async (
         ))
       )
     }
+     */
 
     spinner.setStatus(domain, 'Completed')
 
@@ -414,6 +438,11 @@ export const saveArticleAsMhtml = (
       }
     }
 
+    spinner.setStatus(domain, 'Completed')
+
+    await browser.close()
+
+    /**
     const areAllSnapshotsGenerated = errorArticles.length > 0
 
     spinner.setStatus(
@@ -423,11 +452,10 @@ export const saveArticleAsMhtml = (
         : 'Article snapshots successfully generated'
     )
 
-    await browser.close()
-
     if (areAllSnapshotsGenerated) {
       saveArticleAsMhtml(errorArticles, domain, spinner, { crawlDelay })
     }
+     */
   })()
 
 export const crawlAndScrapeSnapshots = async (
@@ -489,7 +517,8 @@ export const crawlAndScrapeSnapshots = async (
       spinner.updateProgress(domain)
     }
 
-    if (errorArticles.length > 0) {
+    /**
+     if (errorArticles.length > 0) {
       spinner.setStatus(domain, 'Reattempting scrape for failed pages')
 
       spinner.updateProgress(domain, -errorArticles.length)
@@ -503,6 +532,7 @@ export const crawlAndScrapeSnapshots = async (
         ))
       )
     }
+     */
 
     spinner.setStatus(domain, 'Completed')
 

@@ -24,7 +24,9 @@ const labelToPropertyMap: LabelDictionary = {
   [Label.Subheading]: 'subheading',
 }
 
-const replaceLabelsWithPropertyNames = (scraped: FormattedScrapedContent[]) =>
+export const replaceLabelsWithPropertyNames = (
+  scraped: FormattedScrapedContent[]
+) =>
   scraped
     .filter(({ content }) => content)
     .map(({ label, content }) => ({

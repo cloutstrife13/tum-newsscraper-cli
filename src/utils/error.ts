@@ -1,19 +1,19 @@
+import { randomUUID } from 'crypto'
 import { ErrorWithArticle } from '../types/extractionTypes'
 import { partition } from './array'
 import {
   generateOutputPathByDomain,
   writeObjectToFile,
   makeDirectory,
-  generateLocaleTimestamp,
 } from './systemManager'
 import { ErrorName } from './enums'
 
-export const reportError = (qsErrors: ErrorWithArticle[], domain: string) => {
+export const reportError = (qsErrors: object[], domain: string) => {
   const path = generateOutputPathByDomain('errors', domain)
 
   makeDirectory(path)
 
-  writeObjectToFile(`${path}/${generateLocaleTimestamp()}-error.json`, qsErrors)
+  writeObjectToFile(`${path}/${randomUUID()}-error.json`, qsErrors)
 }
 
 export const extractRetryableUrlsFromErrors = (
